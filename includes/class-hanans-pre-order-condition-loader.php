@@ -19,7 +19,7 @@ if( ! class_exists( 'Hanans_Pre_Order_Condition_Loader' ) ) {
 
         }
 
-        public function add() {
+        private function add( $hooks, $hook, $component, $callback ) {
             
             $hooks[] = array(
                 'hook'      => $hook,
@@ -37,7 +37,7 @@ if( ! class_exists( 'Hanans_Pre_Order_Condition_Loader' ) ) {
 
         }
 
-        public function add_woo_form_fields() {
+        public function add_woo_form_fields( $fields, $key, $args, $value ) {
 
             $fields[] = array(
                 'key'   => $key,
@@ -51,7 +51,7 @@ if( ! class_exists( 'Hanans_Pre_Order_Condition_Loader' ) ) {
 
         public function run() {
 
-            foreach( $this->action as $hook ) {
+            foreach( $this->actions as $hook ) {
 
                 add_action( $hook['hook'], $component['component'], $callback['callback'] );
 

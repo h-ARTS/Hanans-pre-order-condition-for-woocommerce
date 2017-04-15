@@ -22,7 +22,7 @@ if( ! class_exists('Hanans_Pre_Order_Condition') ) {
     
         private function load_dependencies() {
 
-            require_once plugin_dir_path( dirname(__FILE__) . 'admin/class-hanans-pre-order-condition-admin.php' );
+            require_once plugin_dir_path( dirname(__FILE__) ) . 'admin/class-hanans-pre-order-condition-admin.php';
 
             require_once plugin_dir_path( __FILE__ ) . 'class-hanans-pre-order-condition-loader.php';
 
@@ -32,7 +32,7 @@ if( ! class_exists('Hanans_Pre_Order_Condition') ) {
     
         private function define_admin_hooks() {
     
-            $admin = new Hanans_Pre_Order_Condition_Admin( $this->get_version() );
+            $admin = new Hanans_Pre_Order_Condition_Admin( $this->version, $this->plugin_slug );
             $this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_styles' );
             $this->loader->add_action( 'woocommerce_after_order_notes', $this, 'hanans_pre_order_timepicker' );
             $this->loader->add_action( 'woocommerce_checkout_update_order_meta', $this, 'hanans_pre_order_timepicker_update' );
