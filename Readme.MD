@@ -6,4 +6,4 @@ This Plug-In will fulfill your needs!
 
 ### Changelog
 
-- 0.0.1 First commit
+- 0.1.0 First commit
